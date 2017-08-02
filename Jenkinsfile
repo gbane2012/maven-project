@@ -4,7 +4,7 @@ properties([
     buildDiscarder(logRotator(artifactNumToKeepStr: '5', daysToKeepStr: '10'))
 ])
 
-docker.image('alecharp/java-build-tools:latest').inside('-v /Users/fetiguegbane/.m2:/home/build/.m2') {
+docker.image('java:latest').inside('-v /Users/fetiguegbane/.m2:/home/build/.m2') {
 	
 	stage('Checkout') {
 	checkout scm
