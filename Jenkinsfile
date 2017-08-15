@@ -1,5 +1,11 @@
-stage('Dev') {
-    node {
-        checkout scm
-    }
+node('node') {
+
+
+    currentBuild.result = "SUCCESS"
+
+    try {
+
+       stage('Checkout'){
+
+          checkout scm
 }
