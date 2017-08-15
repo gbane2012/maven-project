@@ -1,6 +1,6 @@
-node('DEV') {
-    
-       stage('Checkout'){
-           
-          checkout scm
+stage('Dev') {
+    node {
+        checkout scm
+        dir('target') {stash name: 'war', includes: 'x.war'}
+    }
 }
