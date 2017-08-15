@@ -1,6 +1,6 @@
 stage('Checkout Dev') {
     node {
         checkout scm
-        sh 'mvn clean package'
+        mvn clean package
     }
 }
