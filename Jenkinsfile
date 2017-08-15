@@ -4,6 +4,7 @@ stage('Checkout Dev') {
     }
 }
 stage('Build') {
-    sh 'mvn clean install'
+    node {
+       sh 'mvn clean install'
+    }
 }
-
