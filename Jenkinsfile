@@ -3,3 +3,10 @@ stage('Checkout Dev') {
         checkout scm
     }
 }
+
+stage('Build') {
+    node {
+        sh 'mvn clean install'
+    }
+}
+
