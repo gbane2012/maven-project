@@ -5,7 +5,7 @@ stage('Checkout Dev') {
 }
 stage('Build') {
     node {
-       mvn'clean install'
+       mvn'-o clean install'
     }
 }
 
