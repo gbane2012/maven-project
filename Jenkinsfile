@@ -7,6 +7,7 @@ node{
   stage ('Build') {
  
     git url: 'https://github.com/gbane2012/maven-project.git'
+    branch: develop
       // Run the maven build
       sh "mvn clean install"
  
