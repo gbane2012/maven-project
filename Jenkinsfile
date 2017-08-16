@@ -1,9 +1,9 @@
 #!groovy
 
-stage('Checkout Dev') {
+stage('Checkout Dev'){
     node {
         checkout scm
         mvn '-o clean package'
-    }
-}
+        }
+     }
 
