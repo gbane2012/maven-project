@@ -1,7 +1,7 @@
 stage('Checkout Dev') {
     node {
         checkout scm
-        /opt/maven/bin/mvn 'clean install'
+        sh '/opt/maven/bin/mvn clean install'
     }
 }
 
