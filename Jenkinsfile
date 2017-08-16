@@ -3,7 +3,7 @@
 stage('Checkout Dev'){
     node {
         checkout scm
-        mvn '-o clean package'
+        /opt/maven/mvn '-o clean package'
         }
      }
 
