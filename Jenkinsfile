@@ -7,7 +7,7 @@ stage('Checkout Dev'){
      }
 stage('Build'){
     node {
-        sh '/opt/maven/mvn clean install'
+        sh '/opt/maven/bin/mvn clean install'
         
     }
 }
