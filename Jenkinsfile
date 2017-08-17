@@ -26,3 +26,4 @@ node {
     })
      echo "Test results: ${testResult(currentBuild)}"
     }
+}
