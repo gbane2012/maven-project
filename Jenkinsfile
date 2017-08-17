@@ -8,7 +8,7 @@ stage('Checkout Dev'){
 stage('Build'){
     node {
         sh '/opt/maven/bin/mvn clean install'
-        dir('target') {stash name: 'war', includes: 'x.war'}
+        
         
     }
 }
