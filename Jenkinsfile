@@ -3,7 +3,12 @@
 node {
 
     stage('Checkout Dev'){
-         checkout scm
+     checkout
+      ([$class: 'GitSCM', 
+         branches: [[name: '*/develop']], 
+         doGenerateSubmoduleConfigurations: false, 
+         userRemoteConfigs: [[credentialsId: 'git', 
+         url: 'https://github.com/gbane2012/maven-project.git']]])
     }
      
     stage('Build'){
