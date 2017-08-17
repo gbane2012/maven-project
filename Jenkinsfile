@@ -19,6 +19,6 @@ node {
     }
 
     stage('Test') {
-       sh '/opt/maven/bin/mvn -Dtest=TestCircle test
+       sh '/opt/maven/bin/mvn -Dtest=TestCircle test'
      
 }
