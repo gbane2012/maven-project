@@ -18,12 +18,7 @@ node {
         
     }
 
-    stage('QA') {
-     parallel(longerTests: {
-        runTests(30)
-     }, quickerTests: {
-        runTests(20)
-    })
-     echo "Test results: ${testResult(currentBuild)}"
-    }
+    stage('Test') {
+       sh '/opt/maven/bin/mvn -Dtest=TestCircle test
+     
 }
