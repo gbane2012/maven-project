@@ -11,5 +11,11 @@ stage('Build'){
         
     }
 }
+stage('Static analysis')
+    node {
+        sh '/opt/maven/bin/mvn checkstyle:checkstyle'
+        
+    }
+}
 
 
