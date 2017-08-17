@@ -19,7 +19,12 @@ node {
     }
 
     stage('Test') {
-       sh '/opt/maven/bin/mvn test'
+       sh '/opt/maven/bin/mvn clean test'
+       post {
+                always {
+                    junit '**/target/*-reports/TEST-*.xml'
+                }
+            }
     }
      
 }
