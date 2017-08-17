@@ -26,3 +26,4 @@ stage('QA') {
     })
     echo "Test results: ${testResult(currentBuild)}"
 
+}
