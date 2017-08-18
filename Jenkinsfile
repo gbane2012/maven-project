@@ -1,13 +1,15 @@
 #!groovy
 
 node {
+    def app 
 
-    stage('Checkout Dev'){
+    stage('Clone repository'){
      checkout([$class: 'GitSCM',branches: [[name: '*/develop']],doGenerateSubmoduleConfigurations: false,userRemoteConfigs: [[credentialsId: 'git',url: 'https://github.com/gbane2012/maven-project.git']]])
     }
-     
-    stage('Build'){
+    
+    stage('Build image and Mavenize project'){
         sh '/opt/maven/bin/mvn clean install'
+         app = docker.build("maven-project/hellonode")
         archiveArtifacts artifacts: '**/*.war', onlyIfSuccessful: true
         
         
