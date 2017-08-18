@@ -8,6 +8,7 @@ node {
      
     stage('Build'){
         sh '/opt/maven/bin/mvn clean install'
+        archiveArtifacts artifacts: '**/*.war', onlyIfSuccessful: true
         
         
     }
