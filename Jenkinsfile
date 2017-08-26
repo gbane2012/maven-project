@@ -9,7 +9,6 @@ node {
     
     stage('Build image and Mavenize project'){
         sh '/opt/maven/bin/mvn clean install'
-         app = docker.build("maven-project/hellonode")
         archiveArtifacts artifacts: '**/*.war', onlyIfSuccessful: true
         
         
