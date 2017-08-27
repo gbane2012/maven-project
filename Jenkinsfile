@@ -12,15 +12,13 @@ node('java8') {
      checkout([$class: 'GitSCM',branches: [[name: '*/develop']],doGenerateSubmoduleConfigurations: false,userRemoteConfigs: [[credentialsId: 'git',url: 'https://github.com/gbane2012/maven-project.git']]])
     }
     
-    stage('Build image and Mavenize project'){
-        sh 'mvn clean install'
-       
-        
+    stage('Build image and Mavenize project') {
+        sh 'mvn clean install'  
         
     }
 
 
-    stage('Static analysis'){
+    stage('Static analysis') {
         sh 'mvn checkstyle:checkstyle'
         
     }
