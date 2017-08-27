@@ -1,22 +1,27 @@
 #!groovy
 
-node {
-    def app 
+node('java8') {
+    
+    stage('configure')
+      env.PATH = "${tool 'maven-3.3.9')/bin:${env.PATH}"
+    }
+    
+   
 
     stage('Clone repository'){
      checkout([$class: 'GitSCM',branches: [[name: '*/develop']],doGenerateSubmoduleConfigurations: false,userRemoteConfigs: [[credentialsId: 'git',url: 'https://github.com/gbane2012/maven-project.git']]])
     }
     
     stage('Build image and Mavenize project'){
-        sh '/opt/maven/bin/mvn clean install'
-        archiveArtifacts artifacts: '**/*.war', onlyIfSuccessful: true
+        sh 'mvn clean install'
+       
         
         
     }
 
 
     stage('Static analysis'){
-        sh '/opt/maven/bin/mvn checkstyle:checkstyle'
+        sh 'mvn checkstyle:checkstyle'
         
     }
 
