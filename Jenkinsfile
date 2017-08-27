@@ -2,7 +2,7 @@
 
 node('java8') {
     
-    stage('configure')
+    stage('configure') {
       env.PATH = "${tool 'maven-3.3.9')/bin:${env.PATH}"
     }
     
